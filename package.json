@@ -1,0 +1,38 @@
+{
+  "name": "booking-app",
+  "version": "1.0.0",
+  "description": "Booking app built on Node/Express, EJS, Bootstrap, and MongoDB.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ogre2/booking-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ogre2/booking-app/issues"
+  },
+  "homepage": "https://github.com/ogre2/booking-app#readme",
+  "dependencies": {
+    "@popperjs/core": "^2.11.5",
+    "animate.css": "^4.1.1",
+    "aos": "^2.3.4",
+    "bootstrap": "^5.2.0",
+    "colors": "^1.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "express-ejs-layouts": "^2.5.1",
+    "helmet": "^5.1.1",
+    "jquery": "^3.6.0",
+    "mongoose": "^6.5.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
