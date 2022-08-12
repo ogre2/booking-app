@@ -1,5 +1,7 @@
+// Importing mongoose
 const mongoose = require('mongoose')
 
+// Creating the hotel schema
 const HotelSchema = new mongoose.Schema({
     hotelName: {
         type: String,
@@ -46,4 +48,5 @@ const HotelSchema = new mongoose.Schema({
     }
 })
 
+// Exporting hotel schema
 module.exports = mongoose.model('Hotel', HotelSchema)
