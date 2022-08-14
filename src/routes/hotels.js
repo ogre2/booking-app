@@ -10,11 +10,16 @@ const router = require('express').Router()
 router.get('/', async (req, res) => {
     const allHotels = await Hotel.find()
 
-    res.status(200).json({
-        status: 200,
-        message: 'Hotels endpoint',
-        hotels: allHotels
-    })
+    try {
+        res.status(200).json({
+            status: 200,
+            message: 'Hotels endpoint',
+            hotels: allHotels
+        })
+    }
+    catch(err) {
+        next(err)
+    }
 })
 
 /**
@@ -34,10 +39,7 @@ router.post('/', async (req, res) => {
         })
     }
     catch(err) {
-        res.status(500).json({
-            status: 500,
-            message: err.message
-        })
+        next(err)
     }
 })
 
@@ -65,10 +67,7 @@ router.get('/:id', async (req, res) => {
         }
     }
     catch(err) {
-        res.status(500).json({
-            status: 500,
-            message: err.message
-        })
+        next(err)
     }
 })
 
@@ -91,10 +90,7 @@ router.put('/:id', async (req, res) => {
         })
     }
     catch(err) {
-        res.status(500).json({
-            status: 500,
-            message: err.message
-        })
+        next(err)
     }
 })
 
@@ -112,10 +108,7 @@ router.put('/:id', async (req, res) => {
         })
     }
     catch(err) {
-        res.status(500).json({
-            status: 500,
-            message: err.message
-        })
+        next(err)
     }
 })
 
