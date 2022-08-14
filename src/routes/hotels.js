@@ -8,9 +8,9 @@ const router = require('express').Router()
  * that exist in the database hotels collection
  */
 router.get('/', async (req, res, next) => {
-    const allHotels = await Hotel.find()
-
     try {
+        const allHotels = await Hotel.find()
+
         res.status(200).json({
             status: 200,
             message: 'Hotels endpoint',
@@ -49,22 +49,22 @@ router.post('/', async (req, res, next) => {
  * specific/provided ID paramaeter
  */
 router.get('/:id', async (req, res, next) => {
+    const failed = true
+    const err = new Error()
+
+    err.status = 404
+    err.message = "Sorry, hotel not found!"
+
+    if(failed) return next(err)
+    
     try {
         const findHotel = await Hotel.findById(req.params.id)
 
-        if(findHotel) {
-            res.status(200).json({
-                status: 200,
-                message: `Hotel with ID ${req.params.id} is found`,
-                data: findHotel
-            })
-        }
-        else {
-            res.status(404).json({
-                status: 404,
-                message: `Hotel with ID ${req.params.id} does not exist`
-            })
-        }
+        res.status(200).json({
+            status: 200,
+            message: `Hotel with ID ${req.params.id} is found`,
+            data: findHotel
+        })
     }
     catch(err) {
         next(err)
