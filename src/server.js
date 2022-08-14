@@ -27,6 +27,17 @@ app.use('/api/users', usersRouter)
 app.use('/api/rooms', roomsRouter)
 app.use('/api/hotels', hotelsRouter)
 
+app.use((err, req, res, next) => {
+    const errorStatus = err.status
+    const errorMessage = err.message || 'Something went wrong!'
+
+    return res.status(errorStatus).json({
+        success: false,
+        status: errorStatus,
+        message: errorMessage
+    })
+})
+
 server.listen(process.env.PORT, () => {
     config.dbConnect()
     console.log(`[server] running on port: ${process.env.PORT}`.white)
