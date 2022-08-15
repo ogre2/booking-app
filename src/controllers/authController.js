@@ -98,6 +98,7 @@ exports.signInUser = (async (req, res, next) => {
         // Display user on successful sign in
         res.status(200).json({
             status: 200,
+            message: 'User successfully logged in',
             userInfo
         })
     }
