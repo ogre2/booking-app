@@ -5,12 +5,13 @@ const helmet = require('helmet')
 const config = require('./config')
 const app = express()
 const server = http.createServer(app)
+// const errors = require('./utils/error.js')
 
-const indexRouter = require('./routes/index.js')
-const authRouter = require('./routes/auth.js')
-const usersRouter = require('./routes/users.js')
-const roomsRouter = require('./routes/rooms.js')
-const hotelsRouter = require('./routes/hotels.js')
+const indexRouter = require('./routes/index.router.js')
+const authRouter = require('./routes/auth.router.js')
+const usersRouter = require('./routes/user.router.js')
+const roomsRouter = require('./routes/room.router.js')
+const hotelsRouter = require('./routes/hotel.router.js')
 
 config.colors.enable()
 
